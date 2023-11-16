@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::apiresource('/posts', App\Http\Controllers\Api\PostController::class);
+Route::post('/v1/posts/store', 'api\v1\PostsController@store');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-

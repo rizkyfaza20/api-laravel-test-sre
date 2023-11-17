@@ -23,7 +23,7 @@ To run this app, you can try with:
 
 If you want to run separately, such as to work with the container itself and database container, you can try with: 
 
-`docker pull mrfzy00/crud_laravel_api-sre-test-app:latest`
+`docker pull mrfzy00/crud_laravel_api-sre-test-app:latest` <br>
 `docker run -d -p 8000:8000 --name <the container name> crud_laravel_api-sre-test-app`
 
 Or you would try with run the app combined with docker compose its okay

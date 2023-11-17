@@ -15,6 +15,9 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <br>
+                    {{__('Access the application here:')}}
+                    <a href="{{ url('posts') }}">Posts Dashboard</a>
                 </div>
             </div>
         </div>

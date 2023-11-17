@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body style="background: lightgray">
-
+<a href="{{ route('logout') }}" class="btn btn-sm btn-secondary">Logout</a>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                    <a href="{{ route('posts.create') }}" class="btn btn-md btn-success mb-3">Add Post</a>
+                    <a href="{{ route('posts.create') }}" class="btn btn-md btn-success mb-3">Add Posts</a>
                         <table class="table table-bordered">
                             <thead>
                               <tr>

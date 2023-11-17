@@ -31,6 +31,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./app-laravel-crud
+          context: /app-laravel-crud
           push: true
           tags: mrfzy00/crud_laravel_api-sre-test-app:latest

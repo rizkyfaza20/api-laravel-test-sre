@@ -1,31 +1,48 @@
-FROM php:7.4-fpm
+FROM php:7.4-cli
 
-# Set the working directory
-WORKDIR /var/www/public
+WORKDIR /var/www/html/public
 
-# Install dependencies
+COPY . /var/www/html/public
+
+COPY .env.development .env
+
 RUN apt-get update && apt-get install -y \
+    build-essential \
+    libonig-dev \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    locales \
+    zip \
+    jpegoptim optipng pngquant gifsicle \
+    vim \
+    nano \
+    unzip \
     git \
     curl \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip
+    libzip-dev
 
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
+RUN docker-php-ext-install gd
+
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Install application dependencies
+RUN composer update --prefer-dist --no-plugins --no-scripts
 
-COPY . .
+# Add user for laravel application
+RUN groupadd -g 1000 www
+RUN useradd -u 1000 -ms /bin/bash -g www www
 
+# Copy existing application directory permissions
+COPY --chown=www:www . /var/www/html/public/
 
-RUN composer install --no-interaction --no-dev --optimize-autoloader
-
-
-RUN chown -R www-data:www-data /var/www/public \
-    && chmod -R 755 /var/www/public/storage
-
+# Expose port 8000
 EXPOSE 8000
-CMD ["php-fpm"]
+
+# Start the PHP CLI application (you can adjust this as needed)
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]

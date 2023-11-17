@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "laravel-minikube.fullname" . }}-test-connection"
+  labels:
+    {{- include "laravel-minikube.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "laravel-minikube.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

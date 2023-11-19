@@ -28,6 +28,15 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          env: 
+            - name: DB_CONNECTION
+              value: {{ .Values.database.mysql.connection | quote }}
+            - name: DB_PORT
+              value: {{ .Values.database.mysql.port | quote }} 
+            - name: DB_USERNAME
+              value: {{ .Values.database.mysql.username | quote }}
+            - name: DB_PASSWORD
+              value: {{ .Values.database.mysql.password | quote }} 
           # livenessProbe:
           #   httpGet:
           #     path: /
@@ -40,23 +49,5 @@ spec:
           #     port: http
           #   initialDelaySeconds: 5
           #   periodSeconds: 5
-          env:
-            - name: APP_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: laravel-minikube-app-key
-                  key: APP_KEY
-            - name: DB_CONNECTION
-              value: mysql
-            - name: DB_HOST
-              value: laraveldb
-            - name: DB_PORT
-              value: "33060"
-            - name: DB_DATABASE
-              value: {{ .Values.database.name }}
-            - name: DB_USERNAME
-              value: {{ .Values.database.user }}
-            - name: DB_PASSWORD
-              value: {{ .Values.database.password }}
-
+            
 

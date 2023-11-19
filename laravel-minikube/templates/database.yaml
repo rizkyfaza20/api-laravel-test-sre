@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "laravel-minikube.fullname" . }}-db
+  labels:
+    app: {{ include "laravel-minikube.name" . }}-db  
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "laravel-minikube.name" . }}-db  
+  template:
+    metadata:
+      labels:
+        app: {{ include "laravel-minikube.name" . }}-db  
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:5.7
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "Ch4ngeme!@"
+            - name: MYSQL_DATABASE
+              value: {{ .Values.database.mysql.database }}
+            - name: MYSQL_USER
+              value: {{ .Values.database.mysql.username }}
+            - name: MYSQL_PASSWORD
+              value: "Ch4ng3me!@"

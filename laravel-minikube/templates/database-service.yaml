@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "laravel-minikube.fullname" . }}-db
+spec:
+  selector:
+    app: {{ include "laravel-minikube.fullname" . }}-db
+  ports:
+    - port: 3306
+      targetPort: 33060

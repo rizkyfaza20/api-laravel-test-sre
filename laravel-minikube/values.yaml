@@ -24,17 +24,14 @@ ingress:
     paths: ["/"]
   tls: []
 
-appKey:
-  secretName: laravel-minikube-app-key
-  secretKey: APP_KEY
-
 database:
-  enabled: true
-  version: "5.7-oracle"
-  type: mysql
-  name: laraveldb
-  user: root
-  rootPassword: "Ch4ng3me!@"
+  mysql:
+    connection: mysql
+    port: 3306
+    username: laraveluser
+    password: "Ch4ng3me!@"
+    database: db_laravel
+    rootPassword: "Ch4ng3me!@"
 
 prometheus:
   enabled: true

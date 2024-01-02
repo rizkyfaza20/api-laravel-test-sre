@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: mrfzy00/crud_laravel_api-sre-test-app
-  tag: latest
+  tag: v0.1
   pullPolicy: IfNotPresent
 
 service:

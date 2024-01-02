@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql:5.7
+          image: appkr/mysql:5.7-arm64
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: "Ch4ngeme!@"

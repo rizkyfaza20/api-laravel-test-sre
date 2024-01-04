@@ -1,2 +1,6 @@
 crud_laravel_api-sre-test-app-chart/templates/secrets.yaml
 db/
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup

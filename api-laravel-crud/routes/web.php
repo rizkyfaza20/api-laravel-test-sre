@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\PrometheusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +26,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 
+Route::get('/metrics', [PrometheusController::class, 'metrics']);

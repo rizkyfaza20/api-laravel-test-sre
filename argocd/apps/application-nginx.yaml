@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/rizkyfaza20/api-laravel-test-sre.git
-    targetRevision: main_arm64
+    targetRevision: main
     path: argocd/nginx
     helm:
       valueFiles:

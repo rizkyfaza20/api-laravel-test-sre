@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx
-  namespace: laravel-app
+  namespace: argocd
   labels:
     name: ingress-nginx
 spec:
@@ -16,7 +16,7 @@ spec:
       - "values.yaml"
   destination:
     server: https://kubernetes.default.svc
-    namespace: laravel-app
+    namespace: argocd
 
   # Sync policy
   syncPolicy:

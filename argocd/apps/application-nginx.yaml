@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx
+  name: nginx-test
   namespace: argocd
   labels:
-    name: ingress-nginx
+    name: nginx-test
 spec:
   project: default
   source:
     repoURL: https://github.com/rizkyfaza20/api-laravel-test-sre.git
     targetRevision: main
-    path: argocd/nginx
+    path: argocd/nginx-test
     helm:
       valueFiles:
       - "values.yaml"

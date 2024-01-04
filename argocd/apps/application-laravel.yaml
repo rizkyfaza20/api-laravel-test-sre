@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:rizkyfaza20/api-laravel-test-sre.git
+    repoURL: https://github.com/rizkyfaza20/api-laravel-test-sre.git
     targetRevision: main_arm64
     path: argocd/laravel-minikube
     helm:

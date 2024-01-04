@@ -15,7 +15,7 @@ spec:
   project: default
   # Source of the application manifests
   source:
-    repoURL: git@github.com:rizkyfaza20/api-laravel-test-sre.git # Can point to either a Helm chart repo or a git repo.
+    repoURL: https://github.com/rizkyfaza20/api-laravel-test-sre.git # Can point to either a Helm chart repo or a git repo.
     targetRevision: main_arm64 # For Helm, this refers to the chart version.
     path: argocd/apss # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
 

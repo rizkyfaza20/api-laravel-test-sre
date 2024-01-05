@@ -124,7 +124,6 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-image-updater
     spec:
-      priorityClassName: high-priority-system-b
       terminationGracePeriodSeconds: 30
       containers:
       - command:

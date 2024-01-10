@@ -6,10 +6,8 @@ metadata:
   labels:
     name: laravel-crud
   annotations:
-    argocd-image-updater.argoproj.io/image-list: dockerhub=registry.hub.docker.com/library/crud_laravel_api-sre-test-app:latest
+    argocd-image-updater.argoproj.io/image-list: dockerhub=docker.io/mrfzy00/crud_laravel_api-sre-test-app:latest
     argocd-image-updater.argoproj.io/dockerhub.update-strategy: digest
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/git-branch: main
 spec:
   project: default
   source:

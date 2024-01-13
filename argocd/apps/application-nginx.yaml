@@ -6,7 +6,7 @@ metadata:
   labels:
     name: nginx-test
   annotations:
-    argocd-image-updater.argoproj.io/images-list: dockerhub=docker.io/nginx/nginx:latest
+    argocd-image-updater.argoproj.io/images-list: dockerhub=docker.io/mrfzy00/nginx:lab76
     argocd-image-updater.argoproj.io/dockerhub.update-strategy: digest
 spec:
   project: default

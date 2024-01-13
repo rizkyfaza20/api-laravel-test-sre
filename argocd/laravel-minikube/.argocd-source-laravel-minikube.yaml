@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: laravel-minikube.server.image.repository
+    value: docker.io/mrfzy00/crud_laravel_api-sre-test-app
+    forcestring: true
+  - name: laravel-minikube.server.image.tag
+    value: latest@24bc9d25853809c34115e30e0df891d4e29b7b01780ff994c44c57f9526526ad
+    forcestring: true

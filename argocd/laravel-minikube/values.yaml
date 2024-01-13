@@ -1,3 +1,4 @@
+laravel-minikube:
 replicaCount: 1
 image:
   repository: mrfzy00/crud_laravel_api-sre-test-app

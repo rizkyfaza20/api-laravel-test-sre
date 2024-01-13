@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: laravel-minikube.server.image.repository
+    value: docker.io/mrfzy00/crud_laravel_api-sre-test-app
+    forcestring: true
+  - name: ordivo-base.server.image.tag
+    value: latest@sha256:5ad1b54105cbac7a91e7543f2694735692c3b7b0f5eb91a8412ab7ffcb24c190
+    forcestring: true

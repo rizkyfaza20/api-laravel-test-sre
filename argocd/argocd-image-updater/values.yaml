@@ -92,7 +92,8 @@ config:
   gitCommitMail: ""
 
   # -- Changing the Git commit message
-  gitCommitTemplate: ""
+  gitCommitTemplate: |
+    "build: automatic update of {{ .AppName }}"
 
   # -- Argo CD Image Update log level
   logLevel: "info"

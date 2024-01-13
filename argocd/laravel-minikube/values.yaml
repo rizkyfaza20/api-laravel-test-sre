@@ -7,7 +7,7 @@ image:
 service:
   name: laravel-app
   type: ClusterIP
-  port: 80
+  port: 8000
 
 autoscaling:
   enabled: true

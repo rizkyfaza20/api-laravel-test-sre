@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/rizkyfaza20/api-laravel-test-sre.git
     targetRevision: main
-    path: argo-cd/streamlit
+    path: argocd/streamlit
     helm:
       valueFiles:
       - "values.yaml"

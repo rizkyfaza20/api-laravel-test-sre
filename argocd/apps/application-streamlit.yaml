@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-test
+  name: streamlit-test
   namespace: argocd
   labels:
-    name: nginx-test
+    name: streamlit-test
   annotations: {}
    #  argocd-image-updater.argoproj.io/image-list: dockerhub-nginx=docker.io/mrfzy00/nginx:lab76
    #  argocd-image-updater.argoproj.io/dockerhub-nginx.update-strategy: latest
@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/rizkyfaza20/api-laravel-test-sre.git
     targetRevision: main
-    path: argocd/streamlit
+    path: argo-cd/streamlit
     helm:
       valueFiles:
       - "values.yaml"

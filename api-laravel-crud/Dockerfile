@@ -1,8 +1,8 @@
-FROM php:7.4-cli
+FROM php:7.4.33-fpm AS build
 
-WORKDIR /var/www/html/public
+WORKDIR /var/www/html/
 
-COPY . /var/www/html/public
+COPY . /var/www/html/
 
 COPY .env.development .env
 
@@ -32,14 +32,19 @@ RUN docker-php-ext-install gd
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install application dependencies
-RUN composer update --prefer-dist --no-plugins --no-scripts
+RUN composer install --optimize-autoloader --no-dev
 
 # Add user for laravel application
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
+
+FROM php:7.4.33-fpm-alpine3.16 AS production
+
 # Copy existing application directory permissions
-COPY --chown=www:www . /var/www/html/public/
+WORKDIR /var/www/html/
+
+COPY --from=build --chown=www:www /var/www/html /var/www/html/
 
 # Expose port 8000
 EXPOSE 8000

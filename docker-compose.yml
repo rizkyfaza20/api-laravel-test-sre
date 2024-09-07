@@ -1,19 +1,17 @@
-version: '3.7'
-
 services:
-  # laravel-app:
-  #   platform: linux/x86_64
-  #   image: mrfzy00/crud_laravel_api-sre-test-app
-  #   restart: always
-  #   ports:
-  #     - 8000:8000
-  #   networks:
-  #     - laravel-app
-  #   environment:
-  #     - DB_DATABASE
-  #     - DB_PORT
-  #     - DB_USERNAME
-  #     - DB_PASSWORD
+  laravel-app:
+    platform: linux/x86_64
+    image: php-laravel-test:latest
+    restart: always
+    ports:
+      - 8000:8000
+    networks:
+      - laravel-app
+    environment:
+      - DB_DATABASE
+      - DB_PORT
+      - DB_USERNAME
+      - DB_PASSWORD
 
   db-server:
     platform: linux/x86_64
@@ -40,7 +38,7 @@ services:
       - cache:/data
     networks:
       - laravel-app
-  
+
 networks:
   laravel-app:
 

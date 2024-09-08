@@ -39,7 +39,7 @@ RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
 
-FROM php:7.4.33-fpm-alpine3.16 AS production
+FROM php:7.4-fpm-alpine3.16 AS production
 
 # Copy existing application directory permissions
 WORKDIR /var/www/html/
@@ -56,8 +56,15 @@ RUN apk --no-cache add \
     libxml2-dev \
     freetype-dev
 
-RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
-RUN docker-php-ext-install gd
+RUN docker-php-ext-install \
+    curl \
+    pdo_mysql \
+    mysqli \
+    mbstring \
+    zip \
+    exif \
+    pcntl \
+    gd
 
 COPY --from=build --chown=www:www /var/www/html /var/www/html/
 

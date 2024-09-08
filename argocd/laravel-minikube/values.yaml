@@ -1,7 +1,8 @@
 laravel-minikube:
 replicaCount: 1
 image:
-  repository: ghcr.io/rizkyfaza20/api-laravel-k8s-dev:latest
+  registry: ghcr.io
+  repository: rizkyfaza20/api-laravel-k8s-dev:latest
   tag: latest
   pullPolicy: IfNotPresent
 

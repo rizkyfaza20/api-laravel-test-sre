@@ -8,7 +8,7 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: ghcr=ghcr.io/rizkyfaza20/api-laravel-k8s-dev:latest
     argocd-image-updater.argoproj.io/dockerhub.update-strategy: digest
-
+    argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   project: default
   source:

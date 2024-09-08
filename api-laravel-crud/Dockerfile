@@ -44,6 +44,18 @@ FROM php:7.4.33-fpm-alpine3.16 AS production
 # Copy existing application directory permissions
 WORKDIR /var/www/html/
 
+RUN apk --no-cache add \
+    build-base \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    libzip-dev \
+    unzip \
+    git \
+    curl \
+    oniguruma-dev \
+    libxml2-dev \
+    freetype-dev
+
 RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
 RUN docker-php-ext-install gd
 

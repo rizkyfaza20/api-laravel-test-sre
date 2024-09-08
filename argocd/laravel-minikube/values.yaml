@@ -1,7 +1,7 @@
 laravel-minikube:
 replicaCount: 1
 image:
-  repository: mrfzy00/crud_laravel_api-sre-test-app
+  repository: ghcr.io/rizkyfaza20/api-laravel-k8s-dev:latest
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -34,24 +34,3 @@ database:
     database: db_laravel
     rootPassword: "Ch4ng3me!@"
 
-prometheus:
-  enabled: true
-  alertmanager:
-    enabled: true
-  serverFiles:
-    prometheus.yml:
-      global:
-        scrape_interval: 15s
-      scrape_configs:
-      - job_name: 'laravel-app'
-        static_configs:
-        - targets: ['laravel-app:80']
-
-grafana:
-  enabled: true
-  adminPassword: admin
-  service:
-    type: LoadBalancer
-  dashboards:
-    default:
-    - name: 'Laravel App Metrics'

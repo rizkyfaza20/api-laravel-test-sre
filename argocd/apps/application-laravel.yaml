@@ -6,7 +6,7 @@ metadata:
   labels:
     name: laravel-crud
   annotations:
-    argocd-image-updater.argoproj.io/image-list: dockerhub=docker.io/mrfzy00/crud_laravel_api-sre-test-app:latest
+    argocd-image-updater.argoproj.io/image-list: ghcr=ghcr.io/rizkyfaza20/api-laravel-k8s-dev:latest
     argocd-image-updater.argoproj.io/dockerhub.update-strategy: digest
 
 spec:

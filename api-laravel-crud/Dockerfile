@@ -44,6 +44,9 @@ FROM php:7.4.33-fpm-alpine3.16 AS production
 # Copy existing application directory permissions
 WORKDIR /var/www/html/
 
+RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
+RUN docker-php-ext-install gd
+
 COPY --from=build --chown=www:www /var/www/html /var/www/html/
 
 # Expose port 8000

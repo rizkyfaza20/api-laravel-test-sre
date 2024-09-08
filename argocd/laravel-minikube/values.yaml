@@ -1,8 +1,7 @@
 laravel-minikube:
 replicaCount: 1
 image:
-  registry: ghcr.io
-  repository: rizkyfaza20/api-laravel-k8s-dev:latest
+  repository: ghcr.io/rizkyfaza20/api-laravel-k8s-dev
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -34,4 +33,3 @@ database:
     password: "Ch4ng3me!@"
     database: db_laravel
     rootPassword: "Ch4ng3me!@"
-

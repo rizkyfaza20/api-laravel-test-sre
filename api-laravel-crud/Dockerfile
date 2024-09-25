@@ -22,9 +22,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     libzip-dev
 
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
 RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
 RUN docker-php-ext-install gd
 
@@ -51,6 +48,7 @@ RUN apk --no-cache add \
     libzip-dev \
     unzip \
     git \
+    libcurl \
     curl \
     oniguruma-dev \
     libxml2-dev \

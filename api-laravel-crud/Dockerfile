@@ -50,6 +50,7 @@ RUN apk --no-cache add \
     git \
     libcurl \
     curl \
+    curl-dev \
     oniguruma-dev \
     libxml2-dev \
     freetype-dev
